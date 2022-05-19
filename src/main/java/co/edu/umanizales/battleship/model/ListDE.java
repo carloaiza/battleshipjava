@@ -59,5 +59,32 @@ public class ListDE {
         return list;
     }
 
+    public ListDE cloneList(){
+        ListDE listClone = new ListDE();
+        NodeDE temp= this.head;
+        while(temp != null)
+        {
+            listClone.add(temp.getData());
+            temp = temp.getNext();
+        }
+        return listClone;
+    }
+
+    public boolean validateCoordinatesExist(Coordinate[] coordinates)
+    {
+        NodeDE temp = this.head;
+        while(temp!=null)
+        {
+            for(Coordinate coord: coordinates)
+            {
+                if(temp.getData().validateCoordinateExist(coord))
+                {
+                    return true;
+                }
+            }
+            temp= temp.getNext();
+        }
+        return false;
+    }
 
 }
